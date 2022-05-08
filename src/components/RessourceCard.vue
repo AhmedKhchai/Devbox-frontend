@@ -1,8 +1,14 @@
 <template>
-  <a @click.left="this.$emit('consultRessource', this.ressource)" :href="ressource.url" target="_blank" class="ressource-card" :class="ressource.pinned && pinnedSection ? 'pinned' : ''">
+  <a
+    @click.left="this.$emit('consultRessource', this.ressource)"
+    :href="ressource.siteUrl"
+    target="_blank"
+    class="ressource-card"
+    :class="ressource.pinned && pinnedSection ? 'pinned' : ''"
+  >
     <div class="img" :style="setBackground()"></div>
     <div class="container">
-      <span class="name">{{ ressource.name }}</span>
+      <span class="name">{{ ressource.title }}</span>
       <span class="desc">{{ ressource.desc }}</span>
     </div>
   </a>
@@ -10,18 +16,20 @@
 
 <script>
 export default {
-  name: 'RessourceCard',
+  name: "RessourceCard",
   props: {
     ressource: Object,
     pinnedSection: Boolean,
   },
   methods: {
     setBackground() {
-      const img = this.ressource.image ? this.ressource.image : 'https://images.unsplash.com/photo-1554306274-f23873d9a26c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
-      return `background-image: url(${img})`
+      const img = this.ressource.imageUrl
+        ? this.ressource.imageUrl
+        : "https://images.unsplash.com/photo-1554306274-f23873d9a26c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80";
+      return `background-image: url(${img})`;
     },
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
