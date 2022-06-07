@@ -6,7 +6,8 @@
 npm install
 ```
 
-### Website
+### Website deployed
+
 https://629bd64c4717ce48c8561cda--beautiful-lamington-324d5e.netlify.app/
 
 ### Add this to your local storage to get up and running fast:
